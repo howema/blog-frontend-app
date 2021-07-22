@@ -3,7 +3,8 @@
     <div class="container">
       <h2>{{ post.title }}</h2>
       <p>{{ post.body }}</p>
-      <p>{{ post.image }}</p>
+      <img v-bind:src="post.image" alt="post.title" />
+      <p></p>
       <router-link to="/posts">Back to posts</router-link>
     </div>
   </div>
