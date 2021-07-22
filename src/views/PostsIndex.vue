@@ -1,10 +1,11 @@
 <template>
   <div class="postsindex">
-    <h1>Posts Index</h1>
+    <h1>Here Come the Posts!</h1>
     <div v-for="post in posts" :key="post.id">
-      <h2>Title: {{ post.title }} </h2>
-      <p>Body: {{ post.body }} </p>
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.body }}</p>
       <img v-bind:src="post.image" alt="post.title" />
+      <p></p>
       <button>Buttonz!</button>
     </div>
   </div>
