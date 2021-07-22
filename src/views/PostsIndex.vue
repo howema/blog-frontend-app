@@ -1,6 +1,7 @@
 <template>
   <div class="postsindex">
     <h1>Here Come the Posts!</h1>
+    <router-link to="/posts/10">Check out this gator</router-link>
     <div v-for="post in posts" :key="post.id">
       <h2>{{ post.title }}</h2>
       <p>{{ post.body }}</p>
