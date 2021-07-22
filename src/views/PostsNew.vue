@@ -1,6 +1,6 @@
 <template>
   <div class="PostsNew">
-    <form v-on:submit.prevent="submit()">
+    <form v-on:submit.prevent="createPost()">
       <h1>New Post</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
