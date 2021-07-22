@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     createPost: function () {
-      console.log("Creating that post!");
+      console.log("Creating post!");
       axios.post("/posts", this.newPostsParams).then((response) => {
         this.$router.push("/posts");
         console.log(response.data);
