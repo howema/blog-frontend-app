@@ -36,6 +36,7 @@ const routes = [
   { path: "/posts", name: "postsindex", component: PostsIndex },
   { path: "/posts/new", name: "postsnew", component: PostsNew },
   { path: "/posts/10", name: "postsshow", component: PostsShow },
+  { path: "/posts/:id", name: "postsshow", component: PostsShow },
 ];
 
 const router = new VueRouter({

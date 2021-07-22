@@ -3,11 +3,13 @@
     <h1>Here Come the Posts!</h1>
     <router-link to="/posts/10">Check out this gator</router-link>
     <div v-for="post in posts" :key="post.id">
-      <h2>{{ post.title }}</h2>
-      <p>{{ post.body }}</p>
-      <img v-bind:src="post.image" alt="post.title" />
-      <p></p>
-      <button>Buttonz!</button>
+      <router-link v-bind:to="`/posts/${post.id}`">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.body }}</p>
+        <img v-bind:src="post.image" alt="post.title" />
+      </router-link>
+      <!-- <p></p> -->
+      <!-- <button>Buttonz!</button> -->
     </div>
   </div>
 </template>
