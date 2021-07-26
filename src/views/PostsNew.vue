@@ -29,16 +29,23 @@ export default {
   data: function () {
     return {
       errors: [],
-      newPostsParams: {},
+      currentPostsParams: {},
     };
   },
+  created: function () {
+    axios.get(`/posts/${this.$route.params.id}`).then((response) => {
+      console.log(response.data);
+      this.currentPostParams = response.data;
+    });
+  },
   methods: {
-    createPost: function () {
+    updatePost: function () {
       console.log("Creating post!");
-      axios.post("/posts", this.newPostsParams).then((response) => {
-        this.$router.push("/posts");
-        console.log(response.data);
-      });
+      axios.patch(`/posts/${this.$route.params.id}`, this.currentPostsParams.then((response) => {
+          console.log(response.data);
+          this.$router.push(`/posts/${response.data.id}`);
+        })
+      );
     },
   },
 };
