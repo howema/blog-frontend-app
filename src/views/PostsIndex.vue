@@ -15,18 +15,18 @@
         </div>
       </div>
     </div>
-<!-- 
-    <h1>Here Come the Posts!</h1>
-    <!-- <router-link to="/posts/10">Check out this gator</router-link> -->
-    <!-- <div v-for="post in posts" :key="post.id">     ##links the image and text
+
+    <!-- <h1>Here Come the Posts!</h1>
+    <router-link to="/posts/10">Check out this gator</router-link>
+    <div v-for="post in posts" :key="post.id">
       <router-link v-bind:to="`/posts/${post.id}`">
         <h2>{{ post.title }}</h2>
         <p>{{ post.body }}</p>
         <img v-bind:src="post.image" alt="post.title" />
-      </router-link> --> -->
-      <!-- <p></p> -->
-      <!-- <button>Buttonz!</button> -->
-    </div>
+      </router-link>
+      <p></p>
+      <button>Buttonz!</button>
+    </div> -->
   </div>
 </template>
 
