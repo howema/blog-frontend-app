@@ -12,6 +12,12 @@
       <div>
         <label>Body:</label>
         <input type="text" v-model="newPostsParams.body" />
+        <!-- <small v-if="newPostsParams.body.length > 0 && newPostsParams.body.length < 150" class="text-danger">
+          150 characters left
+        </small>
+        <small v-if="newPostsParams.password.length > 20" class="text-danger">
+          Password cannot exceed 20 characters
+        </small> -->
       </div>
       <div>
         <label>Image:</label>
@@ -29,13 +35,13 @@ export default {
   data: function () {
     return {
       errors: [],
-      currentPostsParams: {},
+      newPostsParams: { body: "" },
     };
   },
   created: function () {
     axios.get(`/posts/${this.$route.params.id}`).then((response) => {
       console.log(response.data);
-      this.currentPostParams = response.data;
+      this.newPostsParams = response.data;
     });
   },
   methods: {
