@@ -1,5 +1,6 @@
 <template>
   <div class="PostsNew">
+    <img v-if="status" :src="`https://http.cat/${status}`" />
     <form v-on:submit.prevent="createPost()">
       <h1>New Post</h1>
       <ul>
@@ -35,6 +36,7 @@ export default {
   data: function () {
     return {
       errors: [],
+      status: "",
       newPostsParams: { body: "" },
     };
   },
@@ -47,11 +49,19 @@ export default {
   methods: {
     updatePost: function () {
       console.log("Creating post!");
-      axios.patch(`/posts/${this.$route.params.id}`, this.currentPostsParams.then((response) => {
+      // axios.patch(`/posts/${this.$route.params.id}`, this.currentPostsParams.then((response) => {
+      //     console.log(response.data);
+      //     this.$router.push(`/posts/${response.data.id}`);
+      //   })
+      axios
+        .post("/posts", this.newPostParams)
+        .then((response) => {
+          this.$router.push("/posts");
           console.log(response.data);
-          this.$router.push(`/posts/${response.data.id}`);
         })
-      );
+        .catch((error) => {
+          this.status = error.response.status;
+        });
     },
   },
 };

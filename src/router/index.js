@@ -36,7 +36,7 @@ const routes = [
   { path: "/logout", name: "logout", component: Logout },
   { path: "/posts", name: "postsindex", component: PostsIndex },
   { path: "/posts/new", name: "postsnew", component: PostsNew },
-  { path: "/posts/10", name: "postsshow", component: PostsShow },
+  // { path: "/posts/10", name: "postsshow", component: PostsShow },
   { path: "/posts/:id", name: "postsshow", component: PostsShow },
   { path: "/posts/:id/edit", name: "postsedit", component: PostsEdit },
 ];

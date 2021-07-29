@@ -30,7 +30,14 @@ export default {
     return {
       errors: [],
       newPostsParams: {},
+      currentPostParams: {},
     };
+  },
+  created: function () {
+    axios.get(`/posts/${this.$route.params.id}`).then((response) => {
+      console.log("Post info:", response.data);
+      this.currentPostParams = response.data;
+    });
   },
   methods: {
     createPost: function () {
