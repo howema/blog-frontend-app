@@ -1,8 +1,10 @@
 <template>
   <div class="postsindex">
     <div class="card">
+      Search by title:
+      <input v-model="titleFilter" />
       <div
-        v-for="post in posts"
+        v-for="post in filterBy(posts, titleFilter, 'title', 'body')"
         :key="post.id"
         v-bind:class="{ selected: post === currentPost }"
         v-on:click="currentPost = post"
@@ -43,14 +45,18 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
+
 export default {
   data: function () {
     return {
       message: "Here are posts",
       posts: [],
       currentPost: {},
+      titleFilter: "",
     };
   },
+  mixins: [Vue2Filters.mixin],
   created: function () {
     this.postsIndex();
   },
